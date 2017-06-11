@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>SecuHome - Inloggen</title>
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/reset.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/style.css") }}">
+</head>
+<body class="background-login">
+<div class="card-login centered-login">
+    <img class="logo logo-center" src="../static/Images/logo/logo.png">
+    <form class="inlog" action="/login" method="POST">
+        {% if error %}
+            <p class="foutje">{{ error }}</p><br>
+        {% endif %}
+        <label for="email" class="login-label">E-mail</label><br>
+        <input class="login-field" type="email" id="email" name="email" placeholder="E-mail" required><br>
+        <label for="email" class="login-label">Wachtwoord</label><br>
+        <input class="login-field" type="password" id="wachtwoord" name="password" placeholder="Wachtwoord" required><br>
+        <a href="{{ url_for('wachtwoord_vergeten')}}" class="link_forgot">Wachtwoord vergeten?</a><br>
+        <input type="submit" title="Button fade orange" class="button btnFade btnOrange" value="Inloggen"><br>
+        <a href="{{ url_for('registreren')}}" class="register">Nog geen SecuHome-gebruiker? Registreer hier!</a><br>
+        <p class="copyright">&copy; Arno Van Nieuwenhove<br>All rights reserved.</p>
+    </form>
+</div>
+</body>
+</html>

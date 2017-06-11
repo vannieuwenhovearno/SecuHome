@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>SecuHome - Muziek</title>
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/reset.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/styleB.css") }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="background">
+<div class="card centered">
+    <a href="{{ url_for('start')}}"><img class="logo logo-center" src="../static/Images/logo/logo.png"></a>
+    <p class="online"><span class="green">Online</span>: {% if mail_session %}{{ mail_session }}{% endif %}</p>
+    <nav>
+        <a href="{{ url_for('home')}}">Home</a>
+        <a href="{{ url_for('zonnewering')}}">Zonnewering</a>
+        <a href="{{ url_for('verlichting')}}">Verlichting</a>
+        <a href="{{ url_for('muziek')}}"  class="CurrentPage">Muziek</a>
+        <a href="{{ url_for('grafieken')}}">Grafieken</a>
+    </nav>
+    <div class="container">
+        <div class="lightCard cardLeft">
+            <h1 class="lightTitle">Klik voor muziek af te spelen.</h1>
+            <a href=""><img class="Icon" src="../static/Images/icons/musicIcon.png"></a>
+        </div>
+        <div class="lightCard cardRight history">
+            <h1 class="lightTitle">Geschiedenis</h1>
+            <table class="tblMuziek">
+                <tr>
+                    <th>Tijd</th>
+                    <th>Datum</th>
+                    <th>Stad</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria A.</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco C.</td>
+                    <td>Mexico</td>
+                </tr>
+                <tr>
+                    <td>Ernst Handel</td>
+                    <td>Roland M.</td>
+                    <td>Austria</td>
+                </tr>
+                <tr>
+                    <td>Island Trading</td>
+                    <td>Helen B.</td>
+                    <td>UK</td>
+                </tr>
+                <tr>
+                    <td>Laughing Bacchus Winecellars</td>
+                    <td>Yoshi T.</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>Magazzini Alimentari Riuniti</td>
+                    <td>Giovanni R.</td>
+                    <td>Italy</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <hr class="line">
+        <a href="{{ url_for('logout')}}" class="logout"><i class="material-icons icoontje_uitloggen">exit_to_app</i><p class="uitloggen"> Uitloggen</p></a>
+        <p class="copyright">&copy; Arno Van Nieuwenhove - All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>

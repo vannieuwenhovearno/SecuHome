@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>SecuHome - Zonnewering</title>
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/reset.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/styleB.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/MaterialIcons.css") }}">
+
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+    <script src="{{url_for('static', filename='js/jquery.simpleWeather.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.simpleWeather.min.js')}}"></script>
+</head>
+<body class="background">
+<div class="card centered">
+    <a href="{{ url_for('start')}}"><img class="logo logo-center" src="../static/Images/logo/logo.png"></a>
+    <p class="online"><span class="green">Online</span>: {% if mail_session %}{{ mail_session }}{% endif %}</p>
+    <nav>
+        <a href="{{ url_for('home')}}">Home</a>
+        <a href="{{ url_for('zonnewering')}}" class="CurrentPage">Zonnewering</a>
+        <a href="{{ url_for('verlichting')}}">Verlichting</a>
+        <a href="{{ url_for('muziek')}}">Muziek</a>
+        <a href="{{ url_for('grafieken')}}">Grafieken</a>
+    </nav>
+    <div class="container">
+        <div id="weather"></div>
+        <div class="zonwering">
+            <img class="sunscreen" src="../static/Images/icons/screen.png"/>
+            <div class="arrows">
+                <p class="arrowUp"><i class="material-icons whiteArrow ">arrow_upward</i></p>
+                <p class="arrowDown"><i class="material-icons whiteArrow ">arrow_downward</i></p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <hr class="line">
+        <a href="{{ url_for('logout')}}" class="logout">
+            <i class="material-icons icoontje_uitloggen">exit_to_app</i>
+            <p class="uitloggen"> Uitloggen</p></a>
+        <p class="copyright">&copy; Arno Van Nieuwenhove - All rights reserved.</p>
+    </div>
+</div>
+</body>
+<script>
+    var city;
+    $.getJSON("https://ipinfo.io?token=f7016bec59d925", function (response) {
+
+        city = response.city;
+        console.log(response.city);
+
+        $(document).ready(function () {
+            $.simpleWeather({
+                location: city,
+                woeid: '',
+                unit: 'C',
+                success: function (weather) {
+                    html = '<h2><i class="icon-' + weather.code + '"></i> ' + weather.temp + '&deg;' + weather.units.temp + '</h2>';
+                    html += '<ul><li>' + weather.city + ', ' + weather.region + '</li>';
+                    html += '<li>' + weather.wind.direction + ' ' + weather.wind.speed + ' ' + weather.units.speed + '</li></ul>';
+
+                    $("#weather").html(html);
+                },
+                error: function (error) {
+                    $("#weather").html('<p>' + error + '</p>');
+                }
+            });
+        });
+    });
+</script>
+</html>

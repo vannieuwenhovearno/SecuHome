@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>SecuHome - Registreren</title>
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/reset.css") }}">
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/style.css") }}">
+</head>
+<body class="background-login">
+<div class="card-register centered-register">
+    <img class="logo logo-center" src="../static/Images/logo/logo.png">
+    <form class="inlog" method="POST" action="/registreren">
+        {% if error %}
+            <p class="foutje">{{ error }}</p><br>
+        {% endif %}
+        <label for="naam" class="login-label">Naam & voornaam</label><br>
+        <input class="login-field" type="text" id="naam" name="fullname" placeholder="Naam & voornaam" required><br>
+        <label for="email" class="login-label">E-mail</label><br>
+        <input class="login-field" type="email" id="email" name="email" placeholder="E-mail" required><br>
+        <label for="wachtwoord" class="login-label">Wachtwoord</label><br>
+        <input class="login-field" type="password" id="wachtwoord" name="password" placeholder="Wachtwoord" required><br>
+        <label for="wachtwoordREP" class="login-label">Herhaal wachtwoord</label><br>
+        <input class="login-field" type="password" id="wachtwoordREP" name="confPassword" placeholder="Wachtwoord herhalen" required><br>
+
+        <input type="submit" href="#" title="Button fade orange" class="button btnFade btnOrange btn-forgetpassword" value="Registreren"><br>
+        <a href="{{ url_for('login')}}" class="register">Bent u al SecuHome-gebruiker? Klik dan hier!</a><br>
+        <p class="copyright">&copy; Arno Van Nieuwenhove<br>All rights reserved.</p>
+    </form>
+</div>
+</body>
+</html>
