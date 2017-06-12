@@ -19,14 +19,18 @@
         <a href="{{ url_for('grafieken')}}" class="CurrentPage">Grafieken</a>
     </nav>
     <div class="container">
-        <div class="lightCard cardLeft">
+        <div class="lightCardGraph cardLeftGraph">
             <h1 class="lightTitle">Zonnewering</h1>
             <img class="imgGraph" src="../static/Images/graph.png">
-            <p class="txtGraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices magna eleifend posuere scelerisque. In nulla dolor, imperdiet bibendum ultricies quis, malesuada eget velit.</p>
-        </div>
-        <div class="lightCard cardRight">
-            <h1 class="lightTitle">1<sup>ste</sup> Verlichting</h1>
-            <img class="imgGraph" src="../static/Images/graph.png">
+            <select class="selectGraph" name="" id="">
+                <option>Zonnewering</option>
+                <optgroup label="Verlichting">
+                    <option>Gelijkvloers</option>
+                    <option>1<sup>ste</sup> verdiep</option>
+                </optgroup>
+                <option>Muziek</option>
+                <option>Verlichting Buiten</option>
+            </select>
             <p class="txtGraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices magna eleifend posuere scelerisque. In nulla dolor, imperdiet bibendum ultricies quis, malesuada eget velit.</p>
         </div>
     </div>

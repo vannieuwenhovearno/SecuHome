@@ -166,14 +166,17 @@ nav>a.CurrentPage{
 
 /*      HOME       */
 .cardHome{
-    width:28%;
-    /*width: 365px;*/
+    width:475px;
     height: 185px;
     background-color: #393738;
-    margin-top: 11.5%;
+    margin-top: 2.5%;
     border-radius: 20px;
     float: left;
 
+}
+
+.topRow{
+    margin-top: 11.5% !important;
 }
 .cardHomeDown{
     margin-top: 2%;
@@ -181,12 +184,21 @@ nav>a.CurrentPage{
     width: 89%;
 }
 .cardLeftHome {
-    margin-left: 5%;
+    float: left;
+    margin-left: 10%;
 }
+
+.cardRightHome {
+    float: right;
+    margin-right: 10%;
+}
+
 .cardHomeTitle{
+    font-size: 1.125em;
     color: white;
     text-align: center;
     padding-top:5%;
+    margin-bottom: 30px;
     text-transform: uppercase;
 }
 .cardHomeDownTitle{
@@ -196,9 +208,25 @@ nav>a.CurrentPage{
     margin-left: 2.5%;
     margin-right:2.5%;
 }
-.cardRightHome {
-    margin-right:5%;
+.LichtenRes{
+    color: white;
+    margin-left: 37.5px;
+    margin-top: 15px;
 }
+.aan{
+    float: right;
+    color: #00d200;
+    font-weight: bolder;
+    margin-right: 37.5px;
+}
+
+.uit{
+    float: right;
+    color: red;
+    font-weight: bolder;
+    margin-right: 37.5px;
+}
+
 
 /*   ZONNEWERING   */
 .sunscreen{
@@ -230,6 +258,19 @@ nav>a.CurrentPage{
     border-radius: 20px;
 
 }
+.lightCardGraph{
+    width: 89%;
+    height: 375px;
+    background-color: #393738;
+    margin-top: 11.5%;
+    border-radius: 20px;
+
+}
+.cardLeftGraph{
+    float: left;
+    margin-left: 5%;
+}
+
 .cardLeft{
     float: left;
     margin-left: 10%;
@@ -404,14 +445,24 @@ i {
 /*    GRAFIEKEN    */
 .txtGraph{
     color: white;
-    width: 90%;
+    width: 40%;
     margin-top: 4%;
     margin-left: 5%;
+    float: left;
 }
 .imgGraph{
-    margin-left: 15%;
+    float: right;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-top: 4%;
-    width: 70%;
+    height: 65%;
+    width: 40%;
+}
+.selectGraph{
+    width: 250px;
+    height: 30px;
+    margin-top: 6%;
+    margin-left: 5%;
 }
 
 /* Contact*/
@@ -442,4 +493,3 @@ i {
     text-align: center;
     align-items: center;
 }
-

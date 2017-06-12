@@ -18,17 +18,39 @@
         <a href="{{ url_for('muziek')}}">Muziek</a>
         <a href="{{ url_for('grafieken')}}">Grafieken</a>
     </nav>
-    <div class="cardHome cardLeftHome">
+    <div class="cardHome cardLeftHome topRow">
         <h1 class="cardHomeTitle">Zonnewering</h1>
     </div>
-    <div class="cardHome cardMiddleHome">
-        <h1 class="cardHomeTitle">Verlichting</h1>
+    <div class="cardHome cardRightHome topRow">
+        <h1 class="cardHomeTitle">Verlichting binnenshuis</h1>
+                <p class="LichtenRes">
+                {% if pins[18].state == true %}
+                    {{ typeLicht[0][1] }}: <span class="aan">AAN</span>
+                {% else %}
+                    {{ typeLicht[0][1] }}: <span class="uit">UIT</span>
+                {% endif %}
+                </p>
+
+                <p class="LichtenRes">
+                {% if pins[24].state == true %}
+                    {{ typeLicht[1][1] }}: <span class="aan">AAN</span>
+                {% else %}
+                    {{ typeLicht[1][1] }}: <span class="uit">UIT</span>
+                {% endif %}
+                </p>
+    </div>
+    <div class="cardHome cardLeftHome">
+        <h1 class="cardHomeTitle">Muziek</h1>
+                <p class="LichtenRes">
+                {% if pins[12].state == true %}
+                    {{ typeMuziek[0][1] }}: <span class="aan">AAN</span>
+                {% else %}
+                    {{ typeMuziek[0][1] }}: <span class="uit">UIT</span>
+                {% endif %}
+                </p>
     </div>
     <div class="cardHome cardRightHome">
-        <h1 class="cardHomeTitle">Muziek</h1>
-    </div>
-    <div class="cardHome cardHomeDown">
-        <h1 class="cardHomeTitle cardHomeDownTitle">Grafieken & Data</h1>
+        <h1 class="cardHomeTitle cardHomeDownTitle">Buitenverlichting</h1>
     </div>
     <div class="footer">
         <hr class="line">

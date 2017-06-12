@@ -32,6 +32,7 @@
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="26" parent="14" name="SysteemID">
       <Position>2</Position>
@@ -81,6 +82,7 @@ SysteemID</ColNames>
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="36" parent="15" name="SystemID">
       <Position>2</Position>
@@ -126,86 +128,98 @@ Systeem_gebruikers_IDGebruiker</ColNames>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
     <foreign-key id="45" parent="15" name="fk_lichtenbuiten_has_Systeem_Systeem1">
-      <ColNames>SystemID
-Systeem_gebruikers_IDGebruiker</ColNames>
+      <ColNames>SystemID</ColNames>
       <RefSchemaName>db_project_secuhome</RefSchemaName>
       <RefTableName>systeem</RefTableName>
-      <RefColNames>IDSysteem
-gebruikers_IDGebruiker</RefColNames>
+      <RefColNames>IDSysteem</RefColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="46" parent="16" name="SysteemID">
-      <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="47" parent="16" name="DatumIN">
-      <Position>3</Position>
+    <column id="46" parent="16" name="DatumIN">
+      <Position>1</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="48" parent="16" name="TijdIN">
-      <Position>4</Position>
+    <column id="47" parent="16" name="TijdIN">
+      <Position>2</Position>
       <DataType>time|0</DataType>
     </column>
-    <column id="49" parent="16" name="Aan">
-      <Position>5</Position>
+    <column id="48" parent="16" name="Aan">
+      <Position>3</Position>
       <DataType>tinyint(1)|0</DataType>
     </column>
-    <column id="50" parent="16" name="IDMuziek">
-      <Position>1</Position>
+    <column id="49" parent="16" name="muziek_IDMuziek">
+      <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="51" parent="16" name="fk_Systeem_has_muziek_Systeem1_idx">
-      <ColNames>SysteemID</ColNames>
+    <column id="50" parent="16" name="systeem_IDSysteem">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="51" parent="16" name="fk_datamuziek_systeem1_idx">
+      <ColNames>systeem_IDSysteem</ColNames>
     </index>
-    <index id="52" parent="16" name="fk_datamuziek_muziek1_idx">
-      <ColNames>IDMuziek</ColNames>
-    </index>
-    <key id="53" parent="16" name="PRIMARY">
-      <ColNames>IDMuziek
-SysteemID</ColNames>
+    <key id="52" parent="16" name="PRIMARY">
+      <ColNames>muziek_IDMuziek
+systeem_IDSysteem</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="54" parent="17" name="IDDataZon">
+    <foreign-key id="53" parent="16" name="fk_datamuziek_muziek1">
+      <ColNames>muziek_IDMuziek</ColNames>
+      <RefSchemaName>db_project_secuhome</RefSchemaName>
+      <RefTableName>muziek</RefTableName>
+      <RefColNames>IDMuziek</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="54" parent="16" name="fk_datamuziek_systeem1">
+      <ColNames>systeem_IDSysteem</ColNames>
+      <RefSchemaName>db_project_secuhome</RefSchemaName>
+      <RefTableName>systeem</RefTableName>
+      <RefColNames>IDSysteem</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="55" parent="17" name="IDDataZon">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="55" parent="17" name="SysteemID">
+    <column id="56" parent="17" name="SysteemID">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="56" parent="17" name="Zonnewering">
+    <column id="57" parent="17" name="Zonnewering">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="57" parent="17" name="DatumIN">
+    <column id="58" parent="17" name="DatumIN">
       <Position>4</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="58" parent="17" name="TijdIN">
+    <column id="59" parent="17" name="TijdIN">
       <Position>5</Position>
       <DataType>time|0</DataType>
     </column>
-    <column id="59" parent="17" name="WeringBeneden">
+    <column id="60" parent="17" name="WeringBeneden">
       <Position>6</Position>
       <DataType>tinyint(1)|0</DataType>
     </column>
-    <index id="60" parent="17" name="fk_zonnewering_has_Systeem_Systeem1_idx">
+    <index id="61" parent="17" name="fk_zonnewering_has_Systeem_Systeem1_idx">
       <ColNames>SysteemID</ColNames>
     </index>
-    <index id="61" parent="17" name="fk_zonnewering_has_Systeem_zonnewering_idx">
+    <index id="62" parent="17" name="fk_zonnewering_has_Systeem_zonnewering_idx">
       <ColNames>IDDataZon</ColNames>
     </index>
-    <key id="62" parent="17" name="PRIMARY">
+    <key id="63" parent="17" name="PRIMARY">
       <ColNames>IDDataZon
 SysteemID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="63" parent="17" name="fk_zonnewering_has_Systeem_zonnewering">
+    <foreign-key id="64" parent="17" name="fk_zonnewering_has_Systeem_zonnewering">
       <ColNames>IDDataZon</ColNames>
       <RefSchemaName>db_project_secuhome</RefSchemaName>
       <RefTableName>zonnewering</RefTableName>
@@ -213,7 +227,7 @@ SysteemID</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <foreign-key id="64" parent="17" name="fk_zonnewering_has_Systeem_Systeem1">
+    <foreign-key id="65" parent="17" name="fk_zonnewering_has_Systeem_Systeem1">
       <ColNames>SysteemID</ColNames>
       <RefSchemaName>db_project_secuhome</RefSchemaName>
       <RefTableName>systeem</RefTableName>
@@ -221,77 +235,80 @@ SysteemID</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="65" parent="18" name="IDGebruiker">
+    <column id="66" parent="18" name="IDGebruiker">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="66" parent="18" name="E-mail">
+    <column id="67" parent="18" name="E-mail">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="67" parent="18" name="Wachtwoord">
+    <column id="68" parent="18" name="Wachtwoord">
       <Position>4</Position>
       <DataType>varchar(200)|0</DataType>
     </column>
-    <column id="68" parent="18" name="NaamVoornaam">
+    <column id="69" parent="18" name="NaamVoornaam">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <key id="69" parent="18" name="PRIMARY">
+    <key id="70" parent="18" name="PRIMARY">
       <ColNames>IDGebruiker</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="70" parent="19" name="IDLDR">
+    <column id="71" parent="19" name="IDLDR">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="71" parent="19" name="Beschrijving">
+    <column id="72" parent="19" name="Beschrijving">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <key id="72" parent="19" name="PRIMARY">
+    <key id="73" parent="19" name="PRIMARY">
       <ColNames>IDLDR</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="73" parent="20" name="IDLichtenBinnen">
+    <column id="74" parent="20" name="IDLichtenBinnen">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="74" parent="20" name="Beschrijving">
+    <column id="75" parent="20" name="Beschrijving">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <key id="75" parent="20" name="PRIMARY">
+    <key id="76" parent="20" name="PRIMARY">
       <ColNames>IDLichtenBinnen</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="76" parent="21" name="IDLichtenbuiten">
+    <column id="77" parent="21" name="IDLichtenbuiten">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="77" parent="21" name="Beschrijving">
+    <column id="78" parent="21" name="Beschrijving">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="78" parent="21" name="ldr_IDLDR">
+    <column id="79" parent="21" name="ldr_IDLDR">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="79" parent="21" name="fk_lichtenbuiten_ldr1_idx">
+    <index id="80" parent="21" name="fk_lichtenbuiten_ldr1_idx">
       <ColNames>ldr_IDLDR</ColNames>
     </index>
-    <key id="80" parent="21" name="PRIMARY">
+    <key id="81" parent="21" name="PRIMARY">
       <ColNames>IDLichtenbuiten
 ldr_IDLDR</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="81" parent="21" name="fk_lichtenbuiten_ldr1">
+    <foreign-key id="82" parent="21" name="fk_lichtenbuiten_ldr1">
       <ColNames>ldr_IDLDR</ColNames>
       <RefSchemaName>db_project_secuhome</RefSchemaName>
       <RefTableName>ldr</RefTableName>
@@ -299,65 +316,70 @@ ldr_IDLDR</ColNames>
       <OnUpdate>no-action</OnUpdate>
       <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="82" parent="22" name="IDMuziek">
+    <column id="83" parent="22" name="IDMuziek">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="83" parent="22" name="Beschrijving">
+    <column id="84" parent="22" name="Beschrijving">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <key id="84" parent="22" name="PRIMARY">
+    <key id="85" parent="22" name="PRIMARY">
       <ColNames>IDMuziek</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="85" parent="23" name="IDSysteem">
+    <column id="86" parent="23" name="IDSysteem">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="86" parent="23" name="LichtenBinnen">
+    <column id="87" parent="23" name="LichtenBinnen">
       <Position>2</Position>
       <DataType>int(3)|0</DataType>
     </column>
-    <column id="87" parent="23" name="LichtenBuiten">
+    <column id="88" parent="23" name="LichtenBuiten">
       <Position>3</Position>
       <DataType>int(3)|0</DataType>
     </column>
-    <column id="88" parent="23" name="Zonnewering">
+    <column id="89" parent="23" name="Zonnewering">
       <Position>4</Position>
       <DataType>int(3)|0</DataType>
     </column>
-    <column id="89" parent="23" name="gebruikers_IDGebruiker">
+    <column id="90" parent="23" name="gebruikers_IDGebruiker">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="90" parent="23" name="gebruikers_IDGebruiker1">
-      <Position>6</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
     <index id="91" parent="23" name="fk_systeem_gebruikers1_idx">
-      <ColNames>gebruikers_IDGebruiker1</ColNames>
+      <ColNames>gebruikers_IDGebruiker</ColNames>
     </index>
     <key id="92" parent="23" name="PRIMARY">
       <ColNames>IDSysteem
-gebruikers_IDGebruiker
-gebruikers_IDGebruiker1</ColNames>
+gebruikers_IDGebruiker</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="93" parent="24" name="IDZonnewering">
+    <foreign-key id="93" parent="23" name="fk_systeem_gebruikers1">
+      <ColNames>gebruikers_IDGebruiker</ColNames>
+      <RefSchemaName>db_project_secuhome</RefSchemaName>
+      <RefTableName>gebruikers</RefTableName>
+      <RefColNames>IDGebruiker</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="94" parent="24" name="IDZonnewering">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="94" parent="24" name="Beschrijving">
+    <column id="95" parent="24" name="Beschrijving">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <key id="95" parent="24" name="PRIMARY">
+    <key id="96" parent="24" name="PRIMARY">
       <ColNames>IDZonnewering</ColNames>
       <Primary>1</Primary>
     </key>
